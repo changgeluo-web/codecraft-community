@@ -1,0 +1,27 @@
+{
+  "name": "codecraft-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "码匠社区（CodeCraft Community）前端 - Vue 3 + Vite + Element Plus + Pinia",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "axios": "^1.19.0",
+    "dompurify": "^3.4.13",
+    "element-plus": "^2.14.4",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^15.0.0",
+    "pinia": "^2.3.1",
+    "vue": "^3.5.41",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^5.4.21"
+  }
+}

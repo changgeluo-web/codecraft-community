@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiangma.server.mapper.PostMapper">
+
+    <resultMap id="PostListVOMap" type="com.jiangma.server.vo.PostListVO">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="summary" property="summary"/>
+        <result column="cover_image" property="coverImage"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="author_id" property="authorId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="study_status" property="studyStatus"/>
+    </resultMap>
+
+    <sql id="postListColumns">
+        p.id, p.title, p.summary, p.cover_image, p.sort_order,
+        p.created_at, p.updated_at, p.author_id, p.category_id,
+        c.name AS category_name,
+        up.status AS study_status
+    </sql>
+
+    <sql id="postListJoins">
+        FROM post p
+        LEFT JOIN category c ON p.category_id = c.id
+        LEFT JOIN user_post_progress up ON up.post_id = p.id AND up.user_id = #{userId}
+    </sql>
+
+    <select id="selectPostPage" resultMap="PostListVOMap">
+        SELECT
+        <include refid="postListColumns"/>
+        <include refid="postListJoins"/>
+        WHERE p.deleted = 0 AND p.status = 1
+        <if test="keyword != null and keyword != ''">
+            AND (p.title LIKE CONCAT('%', #{keyword}, '%') OR p.summary LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="categoryId != null">
+            AND p.category_id = #{categoryId}
+        </if>
+        <if test="tagId != null">
+            AND EXISTS (SELECT 1 FROM post_tag pt WHERE pt.post_id = p.id AND pt.tag_id = #{tagId})
+        </if>
+        ORDER BY COALESCE(c.sort_order, 9999) ASC, c.id ASC, COALESCE(p.sort_order, 999999) ASC, p.id ASC
+    </select>
+
+    <select id="selectPostDetail" resultMap="PostListVOMap">
+        SELECT
+        <include refid="postListColumns"/>
+        <include refid="postListJoins"/>
+        WHERE p.id = #{id} AND p.deleted = 0 AND p.status = 1
+    </select>
+</mapper>

@@ -1,0 +1,150 @@
+/* ===== Markdown 渲染样式 ===== */
+.markdown-body {
+  color: #3d3225;
+  font-size: 15px;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.markdown-body > *:first-child {
+  margin-top: 0;
+}
+
+.markdown-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin: 1.4em 0 0.7em;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #2e2418;
+}
+
+.markdown-body h1 {
+  font-size: 1.6em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.35em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+}
+
+.markdown-body h3 {
+  font-size: 1.15em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body p {
+  margin: 0.7em 0;
+}
+
+.markdown-body a {
+  color: var(--cc-primary);
+  text-decoration: none;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body blockquote {
+  margin: 1em 0;
+  padding: 0.55em 1.1em;
+  color: #6b5d4c;
+  border-left: 3px solid var(--cc-primary);
+  background: linear-gradient(90deg, rgba(194, 112, 61, 0.07), transparent 70%);
+  border-radius: 0 10px 10px 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin: 0.7em 0;
+  padding-left: 1.6em;
+}
+
+.markdown-body li {
+  margin: 0.25em 0;
+}
+
+.markdown-body code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9em;
+  background: rgba(160, 90, 44, 0.08);
+  color: #c7254e;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.markdown-body pre {
+  background: #2e2620;
+  border: 1px solid #4a3a2a;
+  border-radius: 12px;
+  padding: 16px 18px;
+  overflow-x: auto;
+  margin: 1.1em 0;
+  line-height: 1.6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 14px rgba(46, 36, 26, 0.25);
+}
+
+.markdown-body pre code {
+  background: transparent;
+  color: #f0e4d3;
+  padding: 0;
+  font-size: 0.88em;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, Menlo, monospace;
+}
+
+.markdown-body table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1em 0;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--cc-border);
+  border-radius: 10px;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border-bottom: 1px solid var(--cc-border-light);
+  border-right: 1px solid var(--cc-border-light);
+  padding: 9px 14px;
+  text-align: left;
+}
+.markdown-body th:last-child, .markdown-body td:last-child { border-right: none; }
+.markdown-body tr:last-child td { border-bottom: none; }
+
+.markdown-body th {
+  background: linear-gradient(90deg, var(--cc-primary-soft), #fdf8f1);
+  font-weight: 600;
+  color: var(--cc-text-main);
+}
+
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid #e6d9c6;
+  margin: 1.6em 0;
+}
+
+/* 行内 code 高亮时保持自身底色；pre 用上面的深色板 */
+.markdown-body code.hljs {
+  background: transparent;
+}

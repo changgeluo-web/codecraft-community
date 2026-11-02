@@ -1,0 +1,34 @@
+# Java / Maven
+target/
+*.class
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker 本地备份（旧库导出，不入库）
+docker/backup/
+
+# Codex 本地工具与截图（不入库）
+.codex-tools/
+
+# 本地杂项
+docker-compose.yml.bak
+
+# 本地环境变量（真实密钥，绝不入库）
+.env
